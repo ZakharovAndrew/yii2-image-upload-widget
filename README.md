@@ -23,3 +23,7 @@ or add
 ```
 
 to the ```require``` section of your ```composer.json``` file.
+
+## License
+
+**yii2-image-upload-widget** it is available under a MIT License. Detailed information can be found in the `LICENSE.md`.
