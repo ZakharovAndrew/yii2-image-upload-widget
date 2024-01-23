@@ -1,0 +1,167 @@
+body {
+    background: #EDEDF5;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+.appBottomMenu {
+    min-height: 56px;
+    position: fixed;
+    z-index: 999;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #DCDCE9;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+.card {
+    background: #ffffff;
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 9%);
+    border-radius: 10px;
+    padding: 20px 24px;
+}
+.appHeader {
+    background: #f68b1f !important;
+    height: 56px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: env(safe-area-inset-top);
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+.main-content:before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 52px;
+    content: "";
+    display: block;
+    height: 150px;
+    background: #f68b1f;
+}
+.appHeader .right {
+    right: 10px;
+    top: 0;
+}
+.appHeader .left, .appHeader .right {
+    height: 56px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+}
+.main-content {
+    margin-top: 70px;
+}
+.appHeader .pageTitle .logo {
+    max-height: 33px;
+    vertical-align: middle;
+}
+.appHeader .pageTitle {
+    font-size: 17px;
+    font-weight: 500;
+    padding: 0 10px;
+}
+.wallet-card .balance {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    height: 100px;
+}
+.wallet-card .wallet-footer p {
+    margin-bottom: 0;
+}
+.wallet-card .wallet-footer {
+    border-top: 1px solid #DCDCE9;
+    padding-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.right a {
+    color:#fff;
+    margin-right: 8px;
+    margin-top: 6px;
+}
+.card-form {
+    margin-top:10px;
+}
+.card-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1em;
+    color: #6236FF;
+    background: rgba(98,54,255,0.1);
+    width: 50px;
+    height: 64px;
+    font-size: 26px;
+    border-radius: 10px
+}
+.appHeader .left {
+    left: 10px;
+    top:0;
+}
+.left a {
+    color:#fff;
+    margin-left: 8px;
+    margin-top: 6px;
+}
+#drop {
+    text-align:center;
+}
+#drop input {
+    display: none;
+}
+#drop a {
+    background-color: #007a96;
+    padding: 12px 26px;
+    color: #fff;
+    font-size: 1.1rem;
+
+    border-radius: 5px;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 12px;
+    line-height: 1;
+    
+    color: #fff!important;
+    background-color: #0195ff!important;
+    border-color: #0195ff!important;
+}
+.drop-here {
+    color: #6c757d;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+#post-image::after { 
+    content: '';
+    clear: both; 
+    display: block;
+}
+.img-box {
+    float: left;
+    position: relative;
+    margin-right: 4px;
+}
+.img-delete {
+    position: absolute;
+    top: 10px;
+    color: red;
+    right: 10px;
+    border-radius: 10px;
+    background: #fff;
+    padding: 3px 8px;
+    cursor: pointer;
+}
