@@ -7,6 +7,8 @@
 
 Yii2 widget for loading images. That widget integrates multiple file selection, drag&amp;drop support and preview of images.
 
+use jQuery Knob plugin (http://anthonyterrien.com/knob/)
+
 ## Installation
 
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
