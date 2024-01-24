@@ -22,7 +22,8 @@ class WidgetAsset extends AssetBundle
             'js/load-image.all.min.js',
             'js/compress.js',
             'js/exif-heic.js',
-            'js/jquery.knob.js'
+            'js/jquery.knob.js',
+            'js/photo_upload_v1.2.js'
         ];
         parent::init();
     }
