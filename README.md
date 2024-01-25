@@ -26,6 +26,22 @@ or add
 
 to the ```require``` section of your ```composer.json``` file.
 
+## Usage
+
+Add this to your main configuration's modules array
+
+```
+    'modules' => [
+        'imageupload' => [
+            'class' => 'ZakharovAndrew\imageupload\Module',
+            'uploadDir' => '/path/to/upload/dir/',
+        ],
+        // ...
+    ],
+```
+
+**Note**: Change the value of **uploadDir** to the directory for uploading images.
+
 ## License
 
 **yii2-image-upload-widget** it is available under a MIT License. Detailed information can be found in the `LICENSE.md`.
