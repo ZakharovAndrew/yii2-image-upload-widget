@@ -22,7 +22,7 @@ $(function(){
         postImages = $("#product-images").val().split(',');
     }
 	
-        console.log('start photo_upload', max_images);
+    console.log('start photo_upload', max_images);
 
     $('#drop a').click(function(){
         // Simulate a click on the file input button
@@ -35,8 +35,6 @@ $(function(){
 
         // This element will accept file drag/drop uploading
         dropZone: $('#drop'),
-        
-        
 
         // This function is called when a file is added to the queue;
         // either via the browse button, or via drag/drop:
@@ -84,37 +82,35 @@ $(function(){
                             { maxWidth: 1000, maxHeight: 1000}
                         );*/
 
-                    console.log('asd');
+                        console.log('asd');
 
-      
+                        compress.compress([data.files[i]], {
+                            size: 4, // the max size in MB, defaults to 2MB
+                            quality: 0.9, // the quality of the image, max is 1,
+                            maxWidth: 1000, // the max width of the output image, defaults to 1920px
+                            maxHeight: 1000, // the max height of the output image, defaults to 1920px
+                            resize: true // defaults to true, set false if you do not want to resize the image width and height
+                        }).then((images) => {
+                            $("#output").append('<p>Start сжатия</p>');
+                            console.log(images);
+                            const img = images[0];
+                            // returns an array of compressed images
+                            preview.src = `${img.prefix}${img.data}`;
+                            //console.log(img);
 
-                            compress.compress([data.files[i]], {
-                                size: 4, // the max size in MB, defaults to 2MB
-                                quality: 0.9, // the quality of the image, max is 1,
-                                maxWidth: 1000, // the max width of the output image, defaults to 1920px
-                                maxHeight: 1000, // the max height of the output image, defaults to 1920px
-                                resize: true // defaults to true, set false if you do not want to resize the image width and height
-                            }).then((images) => {
-                                $("#output").append('<p>Start сжатия</p>');
-                                console.log(images);
-                                const img = images[0];
-                                // returns an array of compressed images
-                                preview.src = `${img.prefix}${img.data}`;
-                                //console.log(img);
+                            const { endSizeInMb, initialSizeInMb, iterations, sizeReducedInPercent, elapsedTimeInSeconds, alt } = img;
 
-                                const { endSizeInMb, initialSizeInMb, iterations, sizeReducedInPercent, elapsedTimeInSeconds, alt } = img;
+                            //output.innerHTML = `<b>Start Size:</b> ${initialSizeInMb} MB <br/><b>End Size:</b> ${endSizeInMb} MB <br/><b>Compression Cycles:</b> ${iterations} <br/><b>Size Reduced:</b> ${sizeReducedInPercent} % <br/><b>File Name:</b> ${alt}`;
 
-                                //output.innerHTML = `<b>Start Size:</b> ${initialSizeInMb} MB <br/><b>End Size:</b> ${endSizeInMb} MB <br/><b>Compression Cycles:</b> ${iterations} <br/><b>Size Reduced:</b> ${sizeReducedInPercent} % <br/><b>File Name:</b> ${alt}`;
+                            var file = dataURLtoFile(preview.src, 'filename'+Date.now()+'.jpg');
+                            console.log('FILE==', file);
+                            $("#output").append('<p>'+'FILE==' + file+'</p>');
 
-                                var file = dataURLtoFile(preview.src, 'filename'+Date.now()+'.jpg');
-                                console.log('FILE==', file);
-                                $("#output").append('<p>'+'FILE==' + file+'</p>');
-
-                                data.files[i] = file; //new File([Base64.encode(preview.src)], "my_image.jpg",{type:"image/jpeg", lastModified:new Date().getTime()});// compress.convertBase64ToFile(preview.src);
-                                var jqXHR = data.submit();
-                            }).catch(function (err) {
-                                console.log(err);
-                            });
+                            data.files[i] = file; //new File([Base64.encode(preview.src)], "my_image.jpg",{type:"image/jpeg", lastModified:new Date().getTime()});// compress.convertBase64ToFile(preview.src);
+                            var jqXHR = data.submit();
+                        }).catch(function (err) {
+                            console.log(err);
+                        });
 
 
                             
@@ -185,11 +181,6 @@ $(function(){
         if (postImageCount == 0) {
             event.preventDefault();
             alert('Добавьте картинки!');
-            return;
-        }
-        if ($("#post-row").val() == '') {
-            event.preventDefault();
-            alert('Выберите место!');
             return;
         }
     });
@@ -278,8 +269,4 @@ $(function(){
         postImages = values;
         genRawPostText();
     }
-});
-
-$(document).ready(function(){
-    
 });
